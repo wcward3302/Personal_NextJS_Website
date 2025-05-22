@@ -39,7 +39,7 @@ export default function GitHubRepos() {
         <div>
           {repos.map((repo) => (
             <div key={repo.id}>
-                <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer" className="block p-2 bg-gray-100 rounded hover:bg-gray-200 transition">
+                <a key={repo.id} href={repo.html_url}>
                     {repo.name}
                 </a>
             </div>
