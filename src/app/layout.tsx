@@ -1,28 +1,27 @@
-import "./globals.css";
+"use client";
 
-import Navbar from './nav'; // adjust the path based on the file structure
-
+import './globals.css';
+import Navbar from './nav';
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const pathname = usePathname();
+
   return (
     <html lang="en">
-      <body>
-
-        <header style = {{ backgroundColor: 'blue', padding: '10px' }}>
+      <body className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-sky-300 via-blue-900 via-80% to-gray-800 text-white">
+        <header className="w-full">
           <Navbar />
         </header>
-        
-        {children}
-
-        <header style = {{ backgroundColor: 'lightblue', padding: '10px' }}>
-          <h1>Footer</h1>
-        </header>
-        
-        </body>
+        <div className="flex-grow flex items-center justify-center w-full overflow-hidden">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

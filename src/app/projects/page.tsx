@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
+import PageWrapper from './../pagewrapper';
 import { useEffect, useState } from 'react';
 
 
 interface Repo {
+  html_url: string | undefined;
+  description: string;
   id: number;
   name: string;
 }
@@ -34,17 +38,29 @@ export default function GitHubRepos() {
   }, [username]);
 
   return (
-    <main>
-      <h1>Repositories for {username}</h1>
-        <div>
+    <PageWrapper>
+      <main className="max-w-4xl mx-auto p-6 text-white">
+        <h1 className="text-4xl font-bold text-center mb-8">
+          Repositories for {username}
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {repos.map((repo) => (
-            <div key={repo.id}>
-                <a key={repo.id} href={repo.html_url}>
-                    {repo.name}
-                </a>
+            <div
+              key={repo.id}
+              className="bg-white bg-opacity-10 rounded-xl p-4 hover:shadow-lg transition"
+            >
+              <Link href={`/projects/${repo.name}`} passHref>
+                <p className="text-lg font-semibold hover:underline">
+                  {repo.name}
+                </p>
+              </Link>
+              <p className="text-sm text-gray-300 mt-2">
+                {repo.description || "No description provided."}
+              </p>
             </div>
           ))}
         </div>
-    </main>
+      </main>
+    </PageWrapper>
   );
 }
