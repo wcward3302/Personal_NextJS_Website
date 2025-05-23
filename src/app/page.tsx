@@ -15,11 +15,11 @@ export default function Home() {
           <img src="/grad_photo.png" alt="Graduation Photo" className="rounded-xl shadow-md w-80" />
         </div>
 
-        <div>
+
           <p className="text-lg leading-relaxed mb-6">
             And you will have to forgive me, my portfolio is still a work in progress! <span className="font-semibold"> More to come soon!</span> 
           </p>
-        </div>
+
       </div>
     </PageWrapper>
   );
