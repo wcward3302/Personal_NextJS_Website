@@ -14,7 +14,7 @@ export default function Navbar() {
             <Link href="/about" className='text-white hover:text-blue-500 transition-colors duration-300'>About</Link>
           </li>
           <li>
-            <Link href="/profile" className='text-white hover:text-blue-500 transition-colors duration-300'>Profiles</Link>
+            <Link href="/resume" className='text-white hover:text-blue-500 transition-colors duration-300'>Resume</Link>
           </li>
           <li>
             <Link href="/projects" className='text-white hover:text-blue-500 transition-colors duration-300'>Projects</Link>

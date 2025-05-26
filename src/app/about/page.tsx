@@ -42,7 +42,6 @@ export default function Profile() {
                     always ready to wear any hat necessary and learn on the fly to help my team succeed.
                 </p>
 
-                {/* Image Carousel Here */}
                 <div className="overflow-hidden rounded-lg mb-4" ref={emblaRef}>
                     <div className="flex">
                         {images.map((src, index) => (
