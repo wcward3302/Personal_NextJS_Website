@@ -1,25 +1,29 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
 
 export default function Navbar() {
   return (
-    <nav className="bg-blue-900/60 backdrop-blur-md shadow-md border-b border-white/10">
-      <div className="container mx-auto px-4">
-        <ul className="flex justify-center space-x-10 py-5 text-lg font-medium">
-          <li>
-            <Link href="/" className='text-white hover:text-blue-500 transition-colors duration-300'>Home</Link>
-          </li>
-          <li>
-            <Link href="/about" className='text-white hover:text-blue-500 transition-colors duration-300'>About</Link>
-          </li>
-          <li>
-            <Link href="/resume" className='text-white hover:text-blue-500 transition-colors duration-300'>Resume</Link>
-          </li>
-          <li>
-            <Link href="/projects" className='text-white hover:text-blue-500 transition-colors duration-300'>Projects</Link>
-          </li>
-        </ul>
+    <nav className="fixed w-full bg-white dark:bg-black shadow">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <div>
+            <ul className="flex space-x-6 text-gray-700 dark:text-gray-300">
+              <li>
+                <Link href="/" className="hover:text-blue-500 transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link href="/resume" className="hover:text-blue-500 transition-colors">Resume</Link>
+              </li>
+              <li>
+                <Link href="/projects" className="hover:text-blue-500 transition-colors">Projects</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   );

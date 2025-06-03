@@ -39,28 +39,28 @@ export default function GitHubRepos() {
 
   return (
     <PageWrapper>
-      <main className="max-w-4xl mx-auto p-6 text-white">
-        <h1 className="text-4xl font-bold text-center mb-8">
+      <div className="w-full flex flex-col items-center space-y-8">
+        <h1 className="text-3xl font-bold mb-8">
           Repositories for {username}
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid gap-6 w-full">
           {repos.map((repo) => (
             <div
               key={repo.id}
-              className="bg-white bg-opacity-10 rounded-xl p-4 hover:shadow-lg transition"
+              className="p-6 bg-gray-800/20 dark:bg-gray-800/50 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
               <Link href={`/projects/${repo.name}`} passHref>
-                <p className="text-lg font-semibold hover:underline">
+                <p className="text-xl font-semibold special-text hover:text-blue-500 dark:hover:text-blue-300 cursor-pointer">
                   {repo.name}
                 </p>
               </Link>
-              <p className="text-sm text-gray-300 mt-2">
+              <p className="mt-2 text-gray-600 dark:text-gray-300">
                 {repo.description || "No description provided."}
               </p>
             </div>
           ))}
         </div>
-      </main>
+      </div>
     </PageWrapper>
   );
 }
