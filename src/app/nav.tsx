@@ -1,9 +1,14 @@
+// nav.tsx
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
+const pages = [
+  { name: 'Home', path: '/' },
+  { name: 'Resume', path: '/resume' },
+  { name: 'Projects', path: '/projects' },
+  // Add more pages here
+];
 
 export default function Navbar() {
   return (
@@ -12,15 +17,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div>
             <ul className="flex space-x-6 text-gray-700 dark:text-gray-300">
-              <li>
-                <Link href="/" className="hover:text-blue-500 transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link href="/resume" className="hover:text-blue-500 transition-colors">Resume</Link>
-              </li>
-              <li>
-                <Link href="/projects" className="hover:text-blue-500 transition-colors">Projects</Link>
-              </li>
+              {pages.map((page) => (
+                <li key={page.path}>
+                  <Link href={page.path} className="hover:text-blue-500 transition-colors">
+                    {page.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
